@@ -27,13 +27,15 @@ public class TipCalculatorActivity extends ActionBarActivity {
 
     public void calculate(View view) {
         EditText amount = (EditText) findViewById(R.id.edtBillAmount);
-        double amountDouble = Double.parseDouble(amount.getText().toString());
-        CheckBox isRound = (CheckBox) findViewById(R.id.chkRound);
-        TextView result = (TextView) findViewById(R.id.txtTipResult);
-        if (isRound.isChecked()) {
-            result.setText(String.valueOf(Math.round((amountDouble)*0.12))+ " $");
-        } else {
-            result.setText(String.valueOf((amountDouble)*0.12)+ " $");
+        if (!amount.getText().toString().equals("")) {
+            double amountDouble = Double.parseDouble(amount.getText().toString());
+            CheckBox isRound = (CheckBox) findViewById(R.id.chkRound);
+            TextView result = (TextView) findViewById(R.id.txtTipResult);
+            if (isRound.isChecked()) {
+                result.setText(String.valueOf(Math.round((amountDouble) * 0.12)) + " $");
+            } else {
+                result.setText(String.valueOf((amountDouble) * 0.12) + " $");
+            }
         }
     }
 
